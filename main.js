@@ -1,3 +1,6 @@
+//opdracht 1 - regel 166
+//opdracht 2 - regel 196
+
 // VOORRAAD ARRAY MET TV'S
 const inventory = [
   {
@@ -161,3 +164,32 @@ const inventory = [
     sold: 8,
   },
 ];
+// ------------------ OPDRACHT 1 -----------------------------//
+// 1a. Array map() methode gebruiken om alle tv types te loggen
+const tvTypes = inventory.map((type) => {
+  return type.type;
+})
+console.log(tvTypes);
+// 1b. Array filter() methode alle tv objecten doe volledig uitverkocht zijn
+const soldOut = inventory.filter((ooStock) => {
+  return ooStock.originalStock === ooStock.sold;
+})
+console.log(soldOut);
+// 1c. Array filter() methode alle tv objecten met ambilight
+const light = inventory.filter((ambi) => {
+  return ambi.options.ambiLight;
+})
+console.log(light);
+// 1d. Array sort() methode om van laagste naar hoogste prijs te sorteren
+const priceAscending = inventory.sort((a,b) => {
+  if (a.price < b.price){
+    return -1;
+  } else if (a.price > b.price){
+    return 1;
+  } else  {
+    return 0;
+  }
+})
+console.log(priceAscending);
+
+// -------------- OPDRACHT 2 -------------------------------------------------//
