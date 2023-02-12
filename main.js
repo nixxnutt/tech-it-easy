@@ -193,3 +193,34 @@ const priceAscending = inventory.sort((a,b) => {
 console.log(priceAscending);
 
 // -------------- OPDRACHT 2 -------------------------------------------------//
+// 2a - Hoeveel tv's verkocht log uitkomst
+const soldUnits = inventory.map((gesold) => {
+  return gesold.sold;
+})
+
+let totalSold = 0;
+for (let i = 0; i < soldUnits.length; i++) {
+  totalSold += soldUnits[i];
+}
+
+const itemOne = document.getElementById('tvs-sold');
+itemOne.textContent = totalSold;
+
+// 2c hoeveel ingekocht
+const boughtForStock = inventory.map((bfs) => {
+  return bfs.originalStock;
+})
+
+let totalStock = 0;
+for (let i = 0; i < boughtForStock.length; i++) {
+  totalStock += boughtForStock[i];
+}
+
+const itemTwo = document.getElementById('inv-stock');
+itemTwo.textContent = totalStock;
+
+// tv's still for sale = tv's bought - tv's sold
+const stillForSale = totalStock - totalSold;
+
+const forSale = document.getElementById('on-sale');
+forSale.textContent = stillForSale;
